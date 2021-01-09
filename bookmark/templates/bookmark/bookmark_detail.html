@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <style>
+        #content{
+            text-align: center;
+            font-size: 30px;
+            font-family: 'Noto Sans KR', sans-serif;
+            width: 900px; height: 900px;
+            margin: auto;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            width: 900px;
+            margin: auto;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        #title{
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 100px;
+            color: orangered;
+        }
+        a{
+            text-decoration: none;
+            color: dimgray;
+        }
+        li:hover{
+            background-color: rgba(255,20,147,0.1);
+        }
+        iframe{
+            width: 900px;
+            height: 560px;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <h1 id="title">{{ object.title }}</h1>
+
+    <a href="{% url 'bookmark_update' bookmark.id %}">
+        <button>UPDATE</button>
+    </a>
+
+    <a href="{% url 'bookmark_delete' bookmark.id %}">
+        <button>DELETE</button>
+    </a>
+
+    <ul>
+        <li>Url: <a href="{{ object.url }}">{{ object.url }}</a></li>
+        <li>Create Date: {{ object.create_date }}</li>
+    </ul>
+    <iframe src="{{ object.url }}"></iframe>
+</div>
+</body>
+</html>

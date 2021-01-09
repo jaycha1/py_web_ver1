@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <style>
+        #content{
+            text-align: center;
+            font-family: 'Noto Sans KR', sans-serif;
+            width: 700px; height: auto;
+            margin: auto;
+        }
+
+        ul{
+            list-style: none;
+        }
+        #date{
+            width: 600px;
+            margin: auto;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+        #desc{
+            text-align: left;
+            margin: auto;
+            width: 600px;
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+        .postimg{
+          width: 400px;
+          height: 500px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://EXAMPLE.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<div id="content">
+    <h1 id="title">{{ object.title }}</h1>
+    <p id="date">Create Date : {{ object.create_date }}</p>
+
+    <img class="postimg" src="{{ post.image.url }}">
+    <p id="desc">{{ post.description }}</p>
+
+<div id="disqus_thread"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load staticfiles %}
+    <title>WEB Project</title>
+      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      <style>
+          .index_a{
+              font-size: 1.5vw;
+              font-family: 'Source Sans Pro', sans-serif;
+          }
+          .nav_menu{
+              font-size: 2.5vw;
+              font-family: 'Source Sans Pro', sans-serif;
+          }
+          .sign_in_name{
+              font-size: 2.0vw;
+              font-family: 'Source Sans Pro', sans-serif;
+          }
+          .greet_comment{
+              font-size: 2.0vw;
+              font-family: 'Source Sans Pro', sans-serif;
+          }
+      </style>
+
+  </head>
+  <body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <div class="container-fluid">
+      <div class="row nav_menu text-center">
+          <div class="col-md-3">
+              <a href="{% url 'admin:index' %}">ADMIN</a>
+          </div>
+
+          <div class="col-md-3">
+              <a href="{% url 'about' %}">ABOUT</a>
+          </div>
+
+          <div class="col-md-3">
+              <a href="{% url 'bookmark_index' %}">BOOKMARK</a>
+          </div>
+
+          <div class="col-md-3">
+              <a href="{% url 'blog_index' %}">BLOG</a>
+          </div>
+      </div>
+    </div>
+
+    {% if user.is_active %}
+    <div class="text-center greet_comment">
+        Hello, <span class="sign_in_name">{{ user.get_username }}</span>
+    </div>
+    <div class="row auth_menu text-center">
+        <div class="col-md-6 auth_menu">
+            <a href="{%url 'logout' %}" class="index_a">SIGN OUT</a>
+        </div>
+        <div class="col-md-6 auth_menu">
+            <a href="{%url 'password_change' %}" class="index_a">PW_CHANGE</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="text-center greet_comment">
+        Welcome, <span class="sign_in_name">Anonymous</span>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-6 auth_menu">
+            <a href="{% url 'login' %}" class="index_a">SIGN IN</a>
+        </div>
+        <div class="col-md-6 auth_menu">
+            <a href="{% url 'register' %}" class="index_a">SIGN UP</a>
+        </div>
+    </div>
+    {% endif %}
+
+    <div>
+        <video autoplay muted loop width="100%;">
+            <source src = "{% static 'video/icehockey.mp4' %}">
+        </video>
+    </div>
+  </body>
+</html>

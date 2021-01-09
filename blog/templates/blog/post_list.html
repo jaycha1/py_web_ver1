@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% load staticfiles %}
+
+<div class="row">
+    <h1 id="title-bm"> Post List</h1>
+        <div id="btn-id">
+        <a href="{% url 'blog_create' %}">
+            <button>CREATE</button>
+        </a>
+        </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="row">
+            {% for post in object_list %}
+                <div class="col-sm-6">
+                    <p id="post-cn1">{{ post.title }}</p>
+                    <a href="{% url 'blog_detail' post.id %}"><img class="postimg" src="{{ post.image.url }}"></a>
+                    <p id="post-cn1">{{ post.description }}</p>
+                </div>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+{% endblock content %}

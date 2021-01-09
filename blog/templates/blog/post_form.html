@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8" id="post-cn">
+        <h2>Blog post</h2>
+        <form action="." method="post" enctype="multipart/form-data">{% csrf_token %}
+            <div class="form-row">
+                {{ form.title.label_tag }} {{ form.title }}
+            </div>
+            <div class="form-row">
+                {{ form.image.label_tag}} {{ form.image }}
+            </div>
+            <div class="form-row">
+                {{ form.description.label_tag }} {{ form.description }}
+            </div>
+            <div class="form-row">
+                <button type="submit">Generate</button>
+                <br>
+                <br>
+                <br>
+            </div>
+        </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="row">
+    <h1 id="title-bm">Bookmark List</h1>
+        <div id="btn-id">
+        <a href="{% url 'bookmark_create' %}">
+            <button>CREATE</button>
+        </a>
+        </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+
+        <ul id="content-bm">
+                {% for bookmark in object_list %}
+                    <li><a href="{% url 'bookmark_detail' bookmark.id %}">{{ bookmark }}</a></li>
+                {% endfor %}
+        </ul>
+    </div>
+    <div class="col-sm-2"></div>
+    </div>
+</div>
+{% endblock content %}
+
